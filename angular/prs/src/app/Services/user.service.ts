@@ -23,8 +23,9 @@ export class UserService {
   getAll(): Observable<User[]> {
     let requestUrl = this.url + '/'
     return this.http.get<User[]>(requestUrl)
-
-
-
+  }
+  getById(id: number): Observable<User[]> {
+    let requestUrl = this.url + '/' + id
+    return this.http.get<User[]>(requestUrl)
   }
 }
