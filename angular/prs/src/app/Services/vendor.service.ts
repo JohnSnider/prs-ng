@@ -5,14 +5,8 @@ import { environment } from 'src/environments/environment';
 
 import { Vendor } from '../models/vendor.model';
 
-
-
-
-
-
-
 // configure base url
-const vendorRoute = "/vendor"
+const vendorRoute = "/vendors"
 
 @Injectable({
   providedIn: 'root'
