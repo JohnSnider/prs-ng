@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Vendor</th>
+    <th scope="col">Part Number</th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Unit</th>
+    <th scope="col">Photopath</th>
+  </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.vendor}}</td>
+      <td>{{product.partNumber}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.unit}}</td>
+      <td>{{product.photopath}}</td>
+      <td><a routerLink="/product/detail/{{ product.id }}">Details</a></td>
+
+    </tr>
+  </tbody>
+</table>
+

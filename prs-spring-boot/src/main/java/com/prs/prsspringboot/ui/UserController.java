@@ -58,7 +58,8 @@ public class UserController {
 				
 		return users;
 	}
-
+	
+	@CrossOrigin
 	@PostMapping
 	public List<User> createUser(@RequestBody User user) {
 		List<User> users = new ArrayList<User>();

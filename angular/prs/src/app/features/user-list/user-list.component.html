@@ -1,3 +1,4 @@
+<button type="button" class = "btn btn-primary" routerLink = "/user/create">Add New User</button>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -8,6 +9,7 @@
     <th scope="col">E-Mail</th>
     <th scope="col">Reviewer?</th>
     <th scope="col">Admin?</th>
+    <th scope="col">Actions</th>
   </tr>
 
   </thead>
@@ -20,6 +22,7 @@
       <td>{{user.email}}</td>
       <td>{{user.reviewer}}</td>
       <td>{{user.admin}}</td>
+      <td><a routerLink="/user/detail/{{ user.id }}">Details</a></td>
 
     </tr>
   </tbody>
