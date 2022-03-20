@@ -14,6 +14,7 @@ import { VendorListComponent } from "./features/vendor-list/vendor-list.componen
 import { ProductListComponent } from './features/product-list/product-list.component';
 import { UserCreateComponent } from './features/user-create/user-create.component';
 import { ProductDetailComponent } from "./features/product-detail/product-detail.component";
+import { VendorCreateComponent } from "./features/vendor-create/vendor-create.component";
 
 
 
@@ -32,8 +33,8 @@ import { ProductDetailComponent } from "./features/product-detail/product-detail
     MenuComponent,
     ProductListComponent,
     UserCreateComponent,
-    ProductDetailComponent
-
+    ProductDetailComponent,
+    VendorCreateComponent
   ],
 
   imports: [

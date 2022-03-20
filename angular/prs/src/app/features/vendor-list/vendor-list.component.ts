@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vendor } from 'src/app/models/vendor.model';
 import { VendorService } from 'src/app/Services/vendor.service';
 
+
 @Component({
   selector: 'app-vendor-list',
   templateUrl: './vendor-list.component.html',
@@ -19,6 +20,14 @@ export class VendorListComponent implements OnInit {
       this.vendors = data
     },
     error => { console.log(error)}
+    )
+  }
+  deleteVendor(id: number) {
+    this.vendorService.deleteById(id).subscribe(
+      data => {
+        this.ngOnInit()
+      },
+      error => { console.log (error)}
     )
   }
 
