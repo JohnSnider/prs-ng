@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../Services/user.service';
 
@@ -19,6 +20,14 @@ export class UserListComponent implements OnInit {
       this.users = data
      },
      error => { console.log(error)}
+    )
+  }
+  deleteUser(id: number){
+    this.userService.deleteById(id).subscribe(
+      data => {
+        this.ngOnInit()
+      },
+      error => { console.log (error)}
     )
   }
 

@@ -24,8 +24,9 @@ public class Vendor {
 	
 	public Vendor() {}
 	
-	public Vendor(int id, String name, String address, String city, String state, String zip, String phone, String email) {
+	public Vendor(int id, String code, String name, String address, String city, String state, String zip, String phone, String email) {
 		this.id = id;
+		this.Code = code;
 		this.name = name;
 		this.address = address;
 		this.city = city;

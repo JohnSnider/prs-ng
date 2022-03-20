@@ -87,7 +87,7 @@ public class UserController {
 		
 		return users;
 	}
-	
+	@CrossOrigin
 	@DeleteMapping("/{id}")	
 	public List<User> deleteUser(@PathVariable int id) {
 		List<User> users = new ArrayList<User>();

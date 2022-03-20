@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class VendorController {
 	
 	@Autowired
 	private VendorRepository vendorRepo;
-	
+	@CrossOrigin
 	@GetMapping("/")
 	public List<Vendor> getAllVendors() {
 		List<Vendor> vendors = new ArrayList<Vendor>();
@@ -38,7 +39,7 @@ public class VendorController {
 		
 		return vendors;
 	}
-	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public List<Vendor> getVendorById(@PathVariable int id){
 		List<Vendor> vendors = new ArrayList<Vendor>();
@@ -52,7 +53,7 @@ public class VendorController {
 				
 		return vendors;
 	}
-	
+	@CrossOrigin
 	@PostMapping
 	public List<Vendor> createVendor(@RequestBody Vendor vendor) {
 		List<Vendor> vendors = new ArrayList<Vendor>();
@@ -65,7 +66,7 @@ public class VendorController {
 		
 		return vendors; 
 	}
-	
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public List<Vendor> updateVendor(@RequestBody Vendor vendor, @PathVariable int id) {
 		List<Vendor> vendors = new ArrayList<Vendor>();
@@ -80,7 +81,7 @@ public class VendorController {
 		
 		return vendors;
 	}
-	
+	@CrossOrigin
 	@DeleteMapping("/{id}")	
 	public List<Vendor> deleteVendor(@PathVariable int id) {
 		List<Vendor> vendors = new ArrayList<Vendor>();

@@ -33,4 +33,8 @@ export class UserService {
   createUser(user: User): Observable<User[]> {
     return this.http.post<User[]>(this.url, user)
   }
+  deleteById(id: number): Observable<User[]> {
+    let requestUrl = this.url + '/' + id
+    return this.http.delete<User[]>(requestUrl)
+  }
 }
