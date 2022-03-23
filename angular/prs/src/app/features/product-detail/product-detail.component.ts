@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -14,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
   product: Product = new Product()
   productId: number = 0
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -36,5 +36,14 @@ export class ProductDetailComponent implements OnInit {
     )
 
   }
+  deleteProduct() {
+    this.productService.deleteById(this.product.id).subscribe(
+      data => {
+        this.router.navigateByUrl("/product/list")
+      },
+      error => console.log(error)
+    )
+  }
+
 
 }

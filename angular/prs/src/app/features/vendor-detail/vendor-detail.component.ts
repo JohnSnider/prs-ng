@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Vendor } from 'src/app/models/vendor.model';
 import { VendorService } from 'src/app/Services/vendor.service';
 
@@ -10,22 +11,38 @@ import { VendorService } from 'src/app/Services/vendor.service';
 export class VendorDetailComponent implements OnInit {
 
   vendor: Vendor = new Vendor()
-  vendorId: number = 1
+  vendorId: number = 0
 
-  constructor(private vendorService: VendorService) { }
+  constructor(private vendorService: VendorService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.vendorService.getById(this.vendorId).subscribe(
+    this.route.params.subscribe(
+      params => {
+        this.vendorId = params.id
+        this.vendorService.getById(this.vendorId).subscribe(
+          data => {
+            if(data.length > 0) {
+              this.vendor = data[0]
+            }
+            console.log(data)
+
+          },
+          error => {console.log(error)}
+
+
+        )
+      }
+    )
+
+  }
+  deleteVendor() {
+    this.vendorService.deleteById(this.vendor.id).subscribe(
       data => {
-        if(data.length > 0) {
-          this.vendor = data[0]
-        }
-        console.log(data)
-
+        this.router.navigateByUrl("/vendor/list")
       },
-      error => {console.log(error)}
-
+      error => console.log(error)
     )
   }
+
 
 }

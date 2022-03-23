@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Requests")
+@Table(name = "Requests") 
 public class Request {
 	
 @Id
@@ -116,7 +116,8 @@ public class Request {
 	public void setReasonForRejection(String reasonForRejection) {
 		this.reasonForRejection = reasonForRejection;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "Request [id=" + id + ", user=" + user + ", description=" + description + ", dateNeeded=" + dateNeeded
