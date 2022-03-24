@@ -72,7 +72,7 @@ public class UserController {
 		
 		return users; 
 	}
-	
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public List<User> updateUser(@RequestBody User user, @PathVariable int id) {
 		List<User> users = new ArrayList<User>();
