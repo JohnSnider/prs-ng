@@ -6,7 +6,7 @@
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="vendor">Vendor:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.vendor' type="text" name="Vendor" id="vendor"
+  <input class="form-control col-sm-6" [(ngModel)]='product.vendor.name' type="text" name="Vendor" id="vendor"
     placeholder="Vendor" disabled>
 </div>
 
@@ -24,7 +24,7 @@
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="price">Price:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.price' type="text" name="Price" id="price"
+  <input class="form-control col-sm-6" [ngModel]='product.price | currency' (ngModelChange)="product.price=$event"type="text" name="Price" id="price"
     placeholder="Price" disabled>
 </div>
 
@@ -42,4 +42,4 @@
 
 
 <button class="btn btn-primary">Edit</button>
-<button class="btn btn-danger">Delete</button>
+<button type="button" (click)="deleteProduct()" class="btn btn-danger">Delete</button>

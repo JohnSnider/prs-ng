@@ -33,6 +33,11 @@ export class UserService {
   createUser(user: User): Observable<User[]> {
     return this.http.post<User[]>(this.url, user)
   }
+  //http://localhost:8080/users/{id}
+  updateUser(user: User): Observable<User[]> {
+    let requestUrl = this.url + '/' + user.id
+    return this.http.put<User[]>(requestUrl, user)
+  }
   deleteById(id: number): Observable<User[]> {
     let requestUrl = this.url + '/' + id
     return this.http.delete<User[]>(requestUrl)
