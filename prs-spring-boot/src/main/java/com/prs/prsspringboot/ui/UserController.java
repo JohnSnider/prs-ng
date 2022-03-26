@@ -16,7 +16,8 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@GetMapping("/authenticate")
+	@CrossOrigin
+	@PostMapping("/authenticate")
 	public List<User> authenticate(@RequestBody User user) {
 		List<User>	users = new ArrayList<User>();
 		
