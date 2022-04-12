@@ -69,7 +69,7 @@ public class ProductController {
 		
 		return products; 
 	}
-	
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public List<Product> updateProduct(@RequestBody Product product, @PathVariable int id) {
 		List<Product> products = new ArrayList<Product>();

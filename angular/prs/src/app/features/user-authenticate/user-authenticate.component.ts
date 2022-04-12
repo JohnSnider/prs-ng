@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { SystemService } from 'src/app/Services/system.service';
 import { UserService } from 'src/app/Services/user.service';
@@ -13,7 +14,7 @@ export class UserAuthenticateComponent implements OnInit {
 
 user: User = new User()
 
-  constructor(private userService: UserService, private systemService: SystemService) { }
+  constructor(private userService: UserService, private systemService: SystemService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,7 @@ user: User = new User()
     data => {
       if (data.length > 0) {
         this.systemService.loggedInUser = data[0]
+        this.router.navigateByUrl('/user/list')
 
       } else {
 

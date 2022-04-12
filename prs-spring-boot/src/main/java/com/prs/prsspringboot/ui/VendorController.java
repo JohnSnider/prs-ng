@@ -24,6 +24,7 @@ public class VendorController {
 	
 	@Autowired
 	private VendorRepository vendorRepo;
+	
 	@CrossOrigin
 	@GetMapping("/")
 	public List<Vendor> getAllVendors() {
@@ -49,10 +50,10 @@ public class VendorController {
 			result.ifPresent(v -> vendors.add(v));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-				
+		}				
 		return vendors;
 	}
+	
 	@CrossOrigin
 	@PostMapping
 	public List<Vendor> createVendor(@RequestBody Vendor vendor) {

@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="product">Product:</label>
+  <select
+    [(ngModel)]="lineItem.product"
+    class="form-control col-sm-6"
+    id="product"
+    name="Product"
+  >
+    <option *ngFor="let product of products" [ngValue]="product">
+      {{ product.name }}
+    </option>
+  </select>
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="quantity">Quantity:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="lineItem.quantity"
+    type="number"
+    name="Quantity"
+    id="quantity"
+    placeholder="Quantity"
+  />
+</div>
+<button type="button" class="btn btn-primary" (click)="createLineItem()">
+  Create Line Item
+</button>

@@ -18,6 +18,17 @@ import { VendorCreateComponent } from "./features/vendor-create/vendor-create.co
 import { ProductCreateComponent } from './features/product-create/product-create.component';
 import { UserEditComponent } from './features/user-edit/user-edit.component';
 import { UserAuthenticateComponent } from './features/user-authenticate/user-authenticate.component';
+import { RequestListComponent } from './features/request-list/request-list.component';
+import { RequestCreateComponent } from './features/request-create/request-create.component';
+import { RequestDetailComponent } from './features/request-detail/request-detail.component';
+import { RequestLinesComponent } from './features/request-lines/request-lines.component';
+import { VendorEditComponent } from './features/vendor-edit/vendor-edit.component';
+import { LineItemCreateComponent } from './features/line-item-create/line-item-create.component';
+import { ProductEditComponent } from './features/product-edit/product-edit.component';
+import { RequestEditComponent } from './features/request-edit/request-edit.component';
+import { LineItemEditComponent } from './features/line-item-edit/line-item-edit.component';
+import { RequestReviewComponent } from './features/request-review/request-review.component';
+import { RequestApproveComponent } from './features/request-approve/request-approve.component';
 
 
 
@@ -40,7 +51,18 @@ import { UserAuthenticateComponent } from './features/user-authenticate/user-aut
     VendorCreateComponent,
     ProductCreateComponent,
     UserEditComponent,
-    UserAuthenticateComponent
+    UserAuthenticateComponent,
+    RequestListComponent,
+    RequestCreateComponent,
+    RequestDetailComponent,
+    RequestLinesComponent,
+    VendorEditComponent,
+    LineItemCreateComponent,
+    ProductEditComponent,
+    RequestEditComponent,
+    LineItemEditComponent,
+    RequestReviewComponent,
+    RequestApproveComponent
   ],
 
   imports: [

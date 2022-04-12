@@ -17,23 +17,28 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-    //http://localhost:8080/products/
-    getAll(): Observable<Product[]> {
-      let requestUrl = this.url + '/'
-      return this.http.get<Product[]>(requestUrl)
-    }
-    getById(id: number): Observable<Product[]> {
-      let requestUrl = this.url + '/' + id
-      return this.http.get<Product[]>(requestUrl)
-    }
+  //http://localhost:8080/products/
+  getAll(): Observable<Product[]> {
+    let requestUrl = this.url + '/'
+    return this.http.get<Product[]>(requestUrl)
+  }
+  getById(id: number): Observable<Product[]> {
+    let requestUrl = this.url + '/' + id
+    return this.http.get<Product[]>(requestUrl)
+  }
 
-      // http://localhost:8080/products/
+  // http://localhost:8080/products/
   createProduct(product: Product): Observable<Product[]> {
     return this.http.post<Product[]>(this.url, product)
   }
-    deleteById(id: number): Observable<Product[]> {
-      let requestUrl = this.url + '/' + id
-      return this.http.delete<Product[]>(requestUrl)
-    }
+  deleteById(id: number): Observable<Product[]> {
+    let requestUrl = this.url + '/' + id
+    return this.http.delete<Product[]>(requestUrl)
+  }
+  //http://localhost:8080/products/{id}
+  updateProduct(product: Product): Observable<Product[]> {
+    let requestUrl = this.url + '/' + product.id
+    return this.http.put<Product[]>(requestUrl, product)
+  }
 }
 

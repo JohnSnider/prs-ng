@@ -1,32 +1,33 @@
-<button type="button" class = "btn btn-primary" routerLink = "/user/create">Add New User</button>
+<app-menu></app-menu>
+<button type="button" class="btn btn-primary" routerLink="/user/create">
+  Add New User
+</button>
 <table class="table table-striped">
   <thead>
     <tr>
-    <th scope="col">Username</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">Phone Number</th>
-    <th scope="col">E-Mail</th>
-    <th scope="col">Reviewer?</th>
-    <th scope="col">Admin?</th>
-    <th scope="col">Actions</th>
-  </tr>
-
+      <th scope="col">Username</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">E-Mail</th>
+      <th scope="col">Reviewer?</th>
+      <th scope="col">Admin?</th>
+      <th scope="col">Actions</th>
+    </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
-      <td>{{user.username}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.phone}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.reviewer}}</td>
-      <td>{{user.admin}}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.reviewer }}</td>
+      <td>{{ user.admin }}</td>
       <td>
         <a routerLink="/user/detail/{{ user.id }}">Details</a> |
         <a routerLink="/user/list" (click)="deleteUser(user.id)">Delete</a>
       </td>
-
     </tr>
   </tbody>
 </table>

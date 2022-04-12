@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prs.prsspringboot.business.LineItem;
 import com.prs.prsspringboot.business.Request;
+import com.prs.prsspringboot.business.Vendor;
 import com.prs.prsspringboot.data.LineItemRepository;
 import com.prs.prsspringboot.data.RequestRepository;
 
@@ -32,6 +33,7 @@ public class LineItemController {
 	@Autowired
 	private RequestRepository requestRepo;
 	
+	@CrossOrigin
 	@PostMapping
 	public List<LineItem> createLineItem(@RequestBody LineItem lineItem) {
 		List<LineItem> items = new ArrayList<LineItem>();
@@ -44,6 +46,21 @@ public class LineItemController {
 		}
 		
 		return items; 
+	}
+	
+	@CrossOrigin
+	@PutMapping
+	public List<LineItem> getAllByRequest(@RequestBody Request request) {
+		List<LineItem> items = new ArrayList<LineItem>();
+		
+		try {
+			items = itemRepo.findByRequest(request);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}
+		
+		return items;
 	}
 	
 	private void recalculateTotal(Request request) {
@@ -72,80 +89,72 @@ public class LineItemController {
 			}
 		}
 	}
-/*	@GetMapping("/") 
-	public List<LineItem> getAllLineItems(){
-		List<LineItem>	items = new ArrayList<LineItem>();
+	@CrossOrigin
+	@GetMapping("/")
+	public List<LineItem> getAllLineItems() {
+		List<LineItem> lineItems = new ArrayList<LineItem>();
 		
 		try {
 			 Iterable<LineItem> result = itemRepo.findAll();
-			 result.forEach(i -> items.add(i));
-			
-		} catch(Exception e) {
+			 result.forEach(i -> lineItems.add(i));
+			 
+		}catch(Exception e) {
 			System.out.println(e.getMessage());
-		}		
+		}
 		
-		return items;
-	} 
-	
+		return lineItems;
+	}
+	@CrossOrigin
 	@GetMapping("/{id}")
-	public List<LineItem> getItemById(@PathVariable int id){
-		List<LineItem> items = new ArrayList<LineItem>();
+	public List<LineItem> getLineItemsById(@PathVariable int id){
+		List<LineItem> lineItems = new ArrayList<LineItem>();
 		
 		try {
 			Optional<LineItem> result = itemRepo.findById(id);
-			result.ifPresent(i -> items.add(i));
+			result.ifPresent(v -> lineItems.add(v));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-				
-		return items;
+		}				
+		return lineItems;
 	}
-	
 	@CrossOrigin
-	@PostMapping
-	public List<LineItem> createItem(@RequestBody LineItem lineitem) {
-		List<LineItem> items = new ArrayList<LineItem>();
-	 
-		try {
-			items.add(itemRepo.save(lineitem));
-		} catch (DataIntegrityViolationException dive) {
-			System.out.println(dive.getMessage());
-		}
-		
-		return items; 
-	}
-	
 	@PutMapping("/{id}")
-	public List<LineItem> updateItem(@RequestBody LineItem lineitem, @PathVariable int id) {
-		List<LineItem> items = new ArrayList<LineItem>();
+	public List<LineItem> updateLineItem(@RequestBody LineItem lineItem, @PathVariable int id) {
+		List<LineItem> lineItems = new ArrayList<LineItem>();
 		
 		if (itemRepo.existsById(id)) {			
 			try {
-				items.add(itemRepo.save(lineitem));
+				Optional<LineItem> result = itemRepo.findById(id);
+				if (result.isPresent()) {
+					lineItems.add(result.get());
+					itemRepo.deleteById(id);
+					recalculateTotal(result.get().getRequest());
+				}
 			} catch (DataIntegrityViolationException dive) {
 				System.out.println(dive.getMessage());
 			}
 		}
 		
-		return items;
+		return lineItems;
 	}
 	@CrossOrigin
 	@DeleteMapping("/{id}")	
-	public List<LineItem> deleteItem(@PathVariable int id) {
-		List<LineItem> items = new ArrayList<LineItem>();
+	public List<LineItem> deleteLineItem(@PathVariable int id) {
+		List<LineItem> lineItems = new ArrayList<LineItem>();
 		
 		if (itemRepo.existsById(id)) {
 			try {
 				Optional<LineItem> result = itemRepo.findById(id);
 				if (result.isPresent()) {
-					items.add(result.get());
+					lineItems.add(result.get());
 					itemRepo.deleteById(id);
+					recalculateTotal(result.get().getRequest());
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		} 
-		return items;
-	} */
+		return lineItems;
+	}
 
 }

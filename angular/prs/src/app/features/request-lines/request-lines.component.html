@@ -1,0 +1,62 @@
+<app-menu></app-menu>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Description</th>
+      <th scope="col">Justification</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ request.user.lastName }}, {{ request.user.firstName }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.justification }}</td>
+      <td>{{ request.total | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+<button
+  type="button"
+  class="btn btn-primary"
+  routerLink="/lines/create/{{ request.id }}"
+>
+  Add Line Item
+</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lineItem of lineItems">
+      <td>{{ lineItem.product.name }}</td>
+      <td>{{ lineItem.quantity }}</td>
+      <td>{{ lineItem.product.price * lineItem.quantity | currency }}</td>
+      <td>
+        <a routerLink="/lines/edit/{{ lineItem.id }}">Edit</a> |
+        <a routerLink="/request/lines" (click)="deleteLineItem(request.id)"
+          >Delete</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="button " class="btn btn-primary" (click)="reviewRequest()">
+  Submit
+</button>
+
+<button
+  *ngIf="request.status === 'Rejected'"
+  type="button "
+  class="btn btn-primary"
+  (click)="reopenRequest()"
+>
+  Reopen
+</button>

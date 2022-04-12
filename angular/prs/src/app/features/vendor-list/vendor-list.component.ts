@@ -10,7 +10,7 @@ import { VendorService } from 'src/app/Services/vendor.service';
 })
 export class VendorListComponent implements OnInit {
 
-  vendors: Vendor [] = []
+  vendors: Vendor[] = []
 
   constructor(private vendorService: VendorService) { }
 
@@ -19,7 +19,7 @@ export class VendorListComponent implements OnInit {
       console.log(data)
       this.vendors = data
     },
-    error => { console.log(error)}
+      error => { console.log(error) }
     )
   }
   deleteVendor(id: number) {
@@ -27,8 +27,7 @@ export class VendorListComponent implements OnInit {
       data => {
         this.ngOnInit()
       },
-      error => { console.log (error)}
+      error => { console.log(error) }
     )
   }
-
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -6,7 +7,8 @@ import { User } from '../models/user.model';
 })
 export class SystemService {
 
- loggedInUser: User | null = null
+  loggedInUser?: User = undefined
+
 
   constructor() { }
 }

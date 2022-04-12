@@ -12,8 +12,17 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="/product/list">Product</a>
     </li>
-    <li *ngIf="user">
-      Hello, {{ user.firstName }}
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/request/list">Requests</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/request/review">Review</a>
+    </li>
+    <li *ngIf="user === undefined" class="nav-item">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="user" class="nav-item">
+      <a class="nav-link">Hello, {{ user.firstName }}</a>
     </li>
   </ul>
 </nav>

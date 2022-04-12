@@ -1,45 +1,99 @@
+<app-menu></app-menu>
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="id">Id:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.id' type="text" name="Id" id="id"
-    placeholder="Id" disabled>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.id"
+    type="text"
+    name="Id"
+    id="id"
+    placeholder="Id"
+    disabled
+  />
 </div>
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="vendor">Vendor:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.vendor.name' type="text" name="Vendor" id="vendor"
-    placeholder="Vendor" disabled>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.vendor.name"
+    type="text"
+    name="Vendor"
+    id="vendor"
+    placeholder="Vendor"
+    disabled
+  />
 </div>
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="partNumber">Part Number:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.partNumber' type="text" name="PartNumber" id="partNumber"
-    placeholder="Part Number" disabled>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.partNumber"
+    type="text"
+    name="PartNumber"
+    id="partNumber"
+    placeholder="Part Number"
+    disabled
+  />
 </div>
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="Name">Name:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.name' type="text" name="Name" id="Name"
-    placeholder="Name" disabled>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.name"
+    type="text"
+    name="Name"
+    id="Name"
+    placeholder="Name"
+    disabled
+  />
 </div>
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="price">Price:</label>
-  <input class="form-control col-sm-6" [ngModel]='product.price | currency' (ngModelChange)="product.price=$event"type="text" name="Price" id="price"
-    placeholder="Price" disabled>
+  <input
+    class="form-control col-sm-6"
+    [ngModel]="product.price | currency"
+    (ngModelChange)="product.price = $event"
+    type="text"
+    name="Price"
+    id="price"
+    placeholder="Price"
+    disabled
+  />
 </div>
 
 <div class="form-group row">
   <label class="col-form-label col-sm-2" for="unit">Unit:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.unit' type="text" name="Unit" id="unit" placeholder="Unit"
-    disabled>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.unit"
+    type="text"
+    name="Unit"
+    id="unit"
+    placeholder="Unit"
+    disabled
+  />
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
   <label class="col-form-label col-sm-2" for="reviewer">Photopath:</label>
-  <input class="form-control col-sm-6" [(ngModel)]='product.photopath' type="checkbox" name="Photopath" id="photopath"
-    placeholder="Photopath" disabled>
-</div>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="product.photopath"
+    type="checkbox"
+    name="Photopath"
+    id="photopath"
+    placeholder="Photopath"
+    disabled
+  />
+</div> -->
 
-
-<button class="btn btn-primary">Edit</button>
-<button type="button" (click)="deleteProduct()" class="btn btn-danger">Delete</button>
+<button class="btn btn-primary" routerLink="/product/edit/ {{ product.id }}">
+  Edit
+</button>
+<button type="button" (click)="deleteProduct()" class="btn btn-danger">
+  Delete
+</button>

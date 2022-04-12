@@ -28,11 +28,12 @@ public class Request {
 	private double total;
 	private LocalDateTime submittedDate;
 	private String reasonForRejection;
+	private String justification;
 
 	public Request() {}
 
 	public Request(int id, User user, String description, LocalDate dateNeeded, String deliveryMode, String status,
-			double total, LocalDateTime submittedDate, String reasonForRejection) {
+			double total, LocalDateTime submittedDate, String reasonForRejection, String justification) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -117,13 +118,24 @@ public class Request {
 		this.reasonForRejection = reasonForRejection;
 	}
 	
+	public String getJustification() {
+		return justification;
+	}
+
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "Request [id=" + id + ", user=" + user + ", description=" + description + ", dateNeeded=" + dateNeeded
 				+ ", deliveryMode=" + deliveryMode + ", status=" + status + ", total=" + total + ", submittedDate="
-				+ submittedDate + ", reasonForRejection=" + reasonForRejection + "]";
+				+ submittedDate + ", reasonForRejection=" + reasonForRejection + ", justification=" + justification
+				+ "]";
 	}
+
+
 	
 	
 }

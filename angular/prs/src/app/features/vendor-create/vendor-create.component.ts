@@ -17,6 +17,7 @@ export class VendorCreateComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.vendor)
   }
+
   createVendor(){
     console.log(this.vendor)
     this.vendorService.createVendor(this.vendor).subscribe(

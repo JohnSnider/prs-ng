@@ -1,0 +1,127 @@
+<app-menu></app-menu>
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="id">Id:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.id"
+    type="text"
+    name="Id"
+    id="id"
+    placeholder="Id"
+    disabled
+  />
+</div>
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="code">User:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.user.username"
+    type="text"
+    name="User"
+    id="user"
+    placeholder="User"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="name">Description:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.description"
+    type="text"
+    name="Description"
+    id="description"
+    placeholder="Description"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="justification"
+    >Justification:</label
+  >
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.justification"
+    type="text"
+    name="Justification"
+    id="justification"
+    placeholder="Justification"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="dateNeeded">Date Needed:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.dateNeeded"
+    type="date"
+    name="DateNeeded"
+    id="dateNeeded"
+    placeholder="DateNeeded"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="deliveryMode"
+    >Delivery Mode:</label
+  >
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.deliveryMode"
+    type="text"
+    name="DeliveryMode"
+    id="deliveryMode"
+    placeholder="DeliveryMode"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="status">Status:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.status"
+    type="text"
+    name="Status"
+    id="status"
+    placeholder="Status"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="total">Total:</label>
+  <input
+    class="form-control col-sm-6"
+    [ngModel]="request.total | currency"
+    type="text"
+    name="Total"
+    id="total"
+    placeholder="Total"
+    disabled
+  />
+</div>
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-2" for="submittedDate">Date:</label>
+  <input
+    class="form-control col-sm-6"
+    [(ngModel)]="request.submittedDate"
+    type="datetime"
+    name="Date"
+    id="date"
+    placeholder="Date"
+    disabled
+  />
+</div>
+
+<button class="btn btn-primary" routerLink="/request/edit/{{ request.id }}">
+  Edit
+</button>
+<button type="button" (click)="deleteRequest()" class="btn btn-danger">
+  Delete
+</button>
